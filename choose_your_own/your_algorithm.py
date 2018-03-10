@@ -28,15 +28,22 @@ plt.show()
 ################################################################################
 
 
-### your code here!  name your classifier object clf if you want the 
+### your code here!  name your classifier object clf if you want the
+#from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+neigh = KNeighborsClassifier(n_neighbors=3)
+neigh.fit(features_train, labels_train)
+
+#neigh.predict(  )
+
+pred = neigh.predict(features_test)
+accuracy = accuracy_score(labels_test, pred)
+
+print("accuracy is :",accuracy)
+
 ### visualization code (prettyPicture) to show you the decision boundary
-
-
-
-
-
-
-
 
 try:
     prettyPicture(clf, features_test, labels_test)
