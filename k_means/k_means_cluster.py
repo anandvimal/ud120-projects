@@ -57,6 +57,7 @@ data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
 
+
 min = 100000000
 max = 0
 
@@ -72,7 +73,8 @@ for i in data_dict:
 
 print ("max exercised_stock_options = ",max)
 print ("min exercised_stock_options = ",min)
-
+stock_min = min
+stock_max = max
 
 min = 100000000
 max = 0
@@ -85,8 +87,27 @@ for i in data_dict:
         if(value_of_interest > max):
             max = value_of_interest
 
+salary_min = min
+salary_max = max
+
 print ("max salary = ",max)
 print ("min salary = ",min)
+
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+salary_of_interest = 200000
+data_salary = [[salary_min], [salary_of_interest], [salary_max]]
+scaler.fit(data_salary)
+print "scalar transform salary:",scaler.transform(data_salary)
+
+
+scaler1 = MinMaxScaler()
+stock_of_interest = 1000000
+data_stock = [[stock_min], [stock_of_interest], [stock_max]]
+scaler.fit(data_stock)
+print "scalar transform stock:",scaler.transform(data_stock)
+
+
 
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to
