@@ -56,3 +56,23 @@ for i in clf.feature_importances_:
 
     if i != 0.0:
         print counter," : ",i
+
+max_index = 0
+counter = 0
+max_element = 0
+for i in clf.feature_importances_:
+    if i > max_element:
+        max_element = i
+        max_index = counter
+    counter = counter+1
+
+
+print ("max element:",max_element)
+print ("max index:",max_index)
+
+#print( word_data )
+for i in features_train:
+    print i
+
+print features_train
+#print word_data[]
