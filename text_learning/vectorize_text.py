@@ -97,5 +97,13 @@ vectorizer = TfidfVectorizer(stop_words='english')
 vectorized_data = vectorizer.fit_transform(corpus)
 
 print "vectorized data's feature names:", len(vectorizer.get_feature_names())
-print word_data[34597]
-print word_data[34596]
+#print word_data[34597]
+#print word_data[34596]
+
+idf_data = zip(vectorizer.get_feature_names(), vectorizer.idf_)
+
+print idf_data[33614-1]
+print idf_data[33614]
+print idf_data[33614+1]
+
+#print word_data
