@@ -46,7 +46,7 @@ from sklearn.metrics import accuracy_score
 score_p = accuracy_score(labels_test, pred)
 
 
-print "length of features_train : ",len(features_train)
+print "length of features_train : ", len(features_train)
 print "accuracy_score is :",score_p
 print "features number",clf.feature_importances_
 
@@ -57,9 +57,12 @@ for i in clf.feature_importances_:
     if i != 0.0:
         print counter," : ",i
 
+
 max_index = 0
 counter = 0
 max_element = 0
+
+
 for i in clf.feature_importances_:
     if i > max_element:
         max_element = i
@@ -70,9 +73,23 @@ for i in clf.feature_importances_:
 print ("max element:",max_element)
 print ("max index:",max_index)
 
+
+'''
 #print( word_data )
+counter = 0
+for i in word_data:
+    #print i
+    print"\ncounter = ",counter
+    counter = counter +1
+    if(counter == 33614):
+        print i
+'''
+
+
+'''
 for i in features_train:
     print i
-
-print features_train
+    print" \n"
+'''
+#print features_train
 #print word_data[]
