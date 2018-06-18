@@ -56,6 +56,14 @@ features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
+print "check data"
+for i in data:
+    print i
+print "end data"
+
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+scaler.fit(data)
 
 min = 100000000
 max = 0
