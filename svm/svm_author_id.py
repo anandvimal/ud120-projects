@@ -32,8 +32,8 @@ from sklearn.metrics import accuracy_score
 
 
 #make data smaller:
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
+#features_train = features_train[:len(features_train)/100]
+#labels_train = labels_train[:len(labels_train)/100]
 
 
 #clf = SVC(kernel='linear')
@@ -85,8 +85,15 @@ print("accuracy_time",accuracy_time)
 
 
 #0 or 1, corresponding to Sara and Chris respectively
-print("10:",y_pred[10])
-print("26:",y_pred[26])
-print("50:",y_pred[50])
+#print("10:",y_pred[10])
+#print("26:",y_pred[26])
+#print("50:",y_pred[50])
+
+total_emails=len(y_pred)
+print("total emails:", len(y_pred))
+
+chris_emails_total = sum(y_pred)
+print("total emails by chris:",chris_emails_total)
+
 
 #########################################################
