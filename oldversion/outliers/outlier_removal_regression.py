@@ -24,20 +24,15 @@ from sklearn.cross_validation import train_test_split
 ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages, net_worths, test_size=0.1, random_state=42)
 
 ### fill in a regression here!  Name the regression object reg so that
-from sklearn import linear_model
-reg = linear_model.LinearRegression()
-reg.fit(ages_train, net_worths_train)
-
-print("regression (reg.coef_):",reg.coef_)
-y_pred = reg.predict(ages_test)
-
-#print("regression score:",reg.score(net_worths_test, y_pred))
 ### the plotting code below works, and you can see what your regression looks like
 
 
 
-from sklearn.metrics import r2_score
-print("score r2",r2_score(net_worths_test, y_pred))
+
+
+
+
+
 
 
 
@@ -74,7 +69,6 @@ if len(cleaned_data) > 0:
     try:
         reg.fit(ages, net_worths)
         plt.plot(ages, reg.predict(ages), color="blue")
-        y_pred = reg.predict(ages_test)
     except NameError:
         print "you don't seem to have regression imported/created,"
         print "   or else your regression object isn't named reg"
@@ -84,9 +78,7 @@ if len(cleaned_data) > 0:
     plt.ylabel("net worths")
     plt.show()
 
-    print "slope(coef_):",reg.coef_
-    print "score: ",reg.score(net_worths_test, y_pred)
-    print("score r2",r2_score(net_worths_test, y_pred))
 
 else:
     print "outlierCleaner() is returning an empty list, no refitting to be done"
+

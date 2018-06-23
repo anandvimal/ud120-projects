@@ -9,4 +9,8 @@ my_classifier.pkl
 my_dataset.pkl
 my_feature_list.pkl
 
+<<<<<<< HEAD
 *.abcd
+=======
+enron_mail_20150507\.tar\.gz
+>>>>>>> movefilesin-oldfolder
