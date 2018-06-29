@@ -29,6 +29,12 @@ features_train, features_test, labels_train, labels_test = preprocess()
 from sklearn import tree
 from sklearn.metrics import accuracy_score
 
+
+
+#print("number of entries in data",len(features_train))
+print("number of features in data",len(features_train[0]))
+
+
 #create decision tree classifier with min_samples_split = 40
 clf = tree.DecisionTreeClassifier(min_samples_split=40)
 clf = clf.fit(features_train, labels_train)
@@ -43,5 +49,7 @@ print("accuracy at min_samples_split:40 with decision tree is",accuracy)
 
 '''
 accuracy is 0.9778156996587031 with dt when min_samples_split = 40.
+
+number of features in data: 3785 to calculate do: len(features_train[0])
 
 '''
