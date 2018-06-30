@@ -31,18 +31,17 @@ plt.show()
 ### your code here!  name your classifier object clf if you want the
 ### visualization code (prettyPicture) to show you the decision boundary
 
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.metrics import accuracy_score
 
-clf = RandomForestClassifier(max_depth=2, random_state=0)
+clf = AdaBoostClassifier(n_estimators=100)
 clf.fit(features_train, labels_train)
 
 y_pred = clf.predict(features_test)
 
 accuracy = accuracy_score(labels_test, y_pred)
-print("accuracy with RandomForestClassifier neighbours :",accuracy)
-#('accuracy with RandomForestClassifier neighbours :', 0.92)
-#:(max_depth=2, random_state=0)
+print("accuracy with AdaBoostClassifier :",accuracy)
+#('accuracy with AdaBoostClassifier (n_estimators=100) :',0.924)
 
 try:
     prettyPicture(clf, features_test, labels_test)
