@@ -44,8 +44,14 @@ test_color = "r" #told in quiz 40 to reset to r from b.
 
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
+import matplotlib.pyplot as plt
 
 reg = linear_model.LinearRegression()
+
+#added because of direction in q46
+reg.fit(feature_test, target_test)
+plt.plot(feature_train, reg.predict(feature_train), color="b")
+
 reg.fit(feature_train, target_train)
 
 print('reg.coef_ : slope: ',reg.coef_)
@@ -58,7 +64,7 @@ y_pred = reg.predict(feature_test)
 print("r2 on testing data is: ", r2_score(target_test, y_pred))
 
 ### draw the scatterplot, with color-coded training and testing points
-import matplotlib.pyplot as plt
+
 for feature, target in zip(feature_test, target_test):
     plt.scatter( feature, target, color=test_color )
 for feature, target in zip(feature_train, target_train):
