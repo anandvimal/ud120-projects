@@ -34,10 +34,11 @@ reg.fit( ages_train, net_worths_train )
 
 print("regression slope: ",reg.coef_)
 
+pred_y = reg.predict(ages_test)
 
 
-
-
+print("Mean squared error: ", mean_squared_error(net_worths_test, pred_y))
+print('Variance score: ', r2_score(net_worths_test, pred_y))
 
 
 
