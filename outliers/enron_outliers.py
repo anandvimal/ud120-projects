@@ -18,7 +18,8 @@ data = featureFormat(data_dict, features)
 
 
 for i in data_dict:
-    print i
+    if (data_dict[i]['bonus'] > 4000000  and data_dict[i]['bonus'] != 'NaN'):
+        print i, data_dict[i]['bonus']
 
 ### your code below
 for point in data:
