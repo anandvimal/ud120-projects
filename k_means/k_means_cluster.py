@@ -63,11 +63,20 @@ poi, finance_features = targetFeatureSplit( data )
 ### for f1, f2, _ in finance_features:
 ### (as it's currently written, the line below assumes 2 features
 exercised_stock_options_list = []
+salary_list = []
+
 for f1, f2, f3 in finance_features:
     plt.scatter( f1, f2 )
+    salary_list.append(f1)
     exercised_stock_options_list.append(f2)
+
 plt.show()
+
 exercised_stock_options_list[:] = (value for value in exercised_stock_options_list if value != 0)
+salary_list[:] = (value for value in salary_list if value != 0)
+
+print("minimum salary: ", min(salary_list), "maximum salary:", max(salary_list))
+
 print ("minimum stock value: ",min(exercised_stock_options_list))
 print("maximum stock value: ",max(exercised_stock_options_list) )
 ### cluster here; create predictions of the cluster labels
