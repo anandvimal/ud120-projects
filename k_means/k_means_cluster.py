@@ -61,11 +61,15 @@ poi, finance_features = targetFeatureSplit( data )
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to
 ### for f1, f2, _ in finance_features:
-### (as it's currently written, the line below assumes 2 features)
+### (as it's currently written, the line below assumes 2 features
+exercised_stock_options_list = []
 for f1, f2, f3 in finance_features:
     plt.scatter( f1, f2 )
+    exercised_stock_options_list.append(f2)
 plt.show()
-
+exercised_stock_options_list[:] = (value for value in exercised_stock_options_list if value != 0)
+print ("minimum stock value: ",min(exercised_stock_options_list))
+print("maximum stock value: ",max(exercised_stock_options_list) )
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
 
