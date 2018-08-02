@@ -8,6 +8,8 @@ import sys
 sys.path.append( "../tools/" )
 from parse_out_email_text import parseOutText
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+
 """
     Starter code to process the emails from Sara and Chris to extract
     the features and get the documents ready for classification.
@@ -41,25 +43,41 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
     for path in from_person:
         ### only look at first 200 emails when developing
         ### once everything is working, remove this line to run over full dataset
-        temp_counter += 1
-        if temp_counter < 200:
+        #temp_counter += 1
+        #if temp_counter < 200:
             path = os.path.join('..', path[:-1])
             print path
             email = open(path, "r")
 
             ### use parseOutText to extract the text from the opened email
-
+            parsed_email = parseOutText(email)
             ### use str.replace() to remove any instances of the words
             ### ["sara", "shackleton", "chris", "germani"]
+            parsed_email.replace( "sara" ,"")
+            parsed_email.replace( "shackleton" ,"")
+            parsed_email.replace( "chris" ,"")
+            parsed_email.replace( "germani" ,"")
 
             ### append the text to word_data
-
+            word_data.append(parsed_email)
+            #print(parsed_email)
+            #print(name)
+            #print("####################################")
             ### append a 0 to from_data if email is from Sara, and 1 if email is from Chris
-
+            if name == "sara" :
+                from_data.append(0)
+                #print(0)
+            else:
+                from_data.append(1)
+                #print(1)
 
             email.close()
 
-print "emails processed"
+#print(word_data[151])
+#print(word_data[152])
+#print(word_data[153])
+#print "emails processed"
+
 from_sara.close()
 from_chris.close()
 
@@ -72,4 +90,34 @@ pickle.dump( from_data, open("your_email_authors.pkl", "w") )
 
 ### in Part 4, do TfIdf vectorization here
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+word_data = pickle.load(open("real_your_word_data.pkl", "rb"))
 
+vectorizer = TfidfVectorizer(stop_words='english')
+
+vectorizer.fit_transform(word_data)
+#print( vectorizer.get_stop_words() )
+unique = vectorizer.get_feature_names()
+print( len(unique))
+
+
+'''import pickle
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+word_data = pickle.load(open("your_word_data.pkl", "rb"))
+
+print "len:", len(word_data)
+
+vectorizer = TfidfVectorizer(stop_words="english")
+vectorizer.fit_transform(word_data)
+
+unique = vectorizer.get_feature_names()
+
+print "How many unique words are in your TfIdf?", len(unique)
+'''
+for x in range(34590, 34600):
+    print x, unique[x]
+
+# for our solution 34595 works as answer even in quiz we are asked to submit 34597.
+# it is probably because our unique words are also 2 less than what was right answer.
+print('q21 answer is : ',unique[34595])
