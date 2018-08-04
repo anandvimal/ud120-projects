@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from nltk.stem.snowball import SnowballStemmer
+from nltk.stem.snowball import SnowballStemmer as SS
 import string
 
 def parseOutText(f):
@@ -31,28 +31,10 @@ def parseOutText(f):
         #words = text_string
 
         ### split the text string into individual words, stem each word,
-        text_string = text_string.split()
-        #text_string = text_string.strip()
-
-        #print text_string
-        '''
-        for i in range(len(text_string)):
-            text_string[i]=text_string[i].strip()
-
-        #print text_string
-
-        text_string = filter(None, text_string)
-        '''
-        #stem here
-        stemmer = SnowballStemmer("english")
-        for i in text_string:
-            w = stemmer.stem(i)
-            words = words + w + " "
-        #make bag of words
-
-        #print text_string
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
+        words = ' '.join(map(lambda x: SS('english').stem(x), text_string.split()))
+        #make bag of words
 
     return words
 

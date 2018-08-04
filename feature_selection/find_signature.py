@@ -9,7 +9,7 @@ numpy.random.seed(42)
 ### These files should have been created from the previous (Lesson 10)
 ### mini-project.
 
-#words_file = "../text_learning/your_word_data.pkl"
+#words_file = "../text_learning/real_your_word_data.pkl"
 #authors_file = "../text_learning/your_email_authors.pkl"
 
 # https://discussions.udacity.com/t/lesson12-quiz26/846930/4
@@ -18,8 +18,6 @@ authors_file = "email_authors_overfit.pkl"
 
 word_data = pickle.load( open(words_file, "r"))
 authors = pickle.load( open(authors_file, "r") )
-
-
 
 ### test_size is the percentage of events assigned to the test set (the
 ### remainder go into training)
@@ -59,3 +57,11 @@ print("accuracy on test set is : ",accuracy)
 y_pred = clf.predict(features_train)
 accuracy = accuracy_score(labels_train, y_pred)
 print("accuracy on training set is : ",accuracy)
+
+list_of_features = clf.feature_importances_
+
+for i in range(len(list_of_features)):
+    if (list_of_features[i] > 0.20) :
+        print (i, list_of_features[i])
+
+#
