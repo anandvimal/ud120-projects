@@ -68,6 +68,7 @@ list_of_features = clf.feature_importances_
 for i in range(len(list_of_features)):
     if (list_of_features[i] > 0.20) :
         print (i, list_of_features[i])
+        #got q27 answer from here (33614, 0.7647058823529412)
 
 print('print size of training points: ', type(features_train), len(features_train))
 
