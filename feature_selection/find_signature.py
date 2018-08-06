@@ -8,12 +8,17 @@ numpy.random.seed(42)
 ### The words (features) and authors (labels), already largely processed.
 ### These files should have been created from the previous (Lesson 10)
 ### mini-project.
-words_file = "../text_learning/your_word_data.pkl" 
+
+#words_file = "../text_learning/real_your_word_data.pkl"
+words_file = "../text_learning/your_word_data.pkl"
 authors_file = "../text_learning/your_email_authors.pkl"
+
+# https://discussions.udacity.com/t/lesson12-quiz26/846930/4
+#words_file = "word_data_overfit.pkl"
+#authors_file = "email_authors_overfit.pkl"
+
 word_data = pickle.load( open(words_file, "r"))
 authors = pickle.load( open(authors_file, "r") )
-
-
 
 ### test_size is the percentage of events assigned to the test set (the
 ### remainder go into training)
@@ -38,6 +43,39 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+clf = DecisionTreeClassifier(random_state=0)
+#iris = load_iris()
+#cross_val_score(clf, iris.data, iris.target, cv=10)
+clf.fit(features_train, labels_train)
+y_pred = clf.predict(features_test)
+
+accuracy = accuracy_score(labels_test, y_pred)
+print("accuracy on test set is : ",accuracy)
+#accuracy calculated after updating the file paths (shown below) was: 0.9482366325369739
+#words_file = "../text_learning/your_word_data.pkl"
+#authors_file = "../text_learning/your_email_authors.pkl"
 
 
+y_pred = clf.predict(features_train)
+accuracy = accuracy_score(labels_train, y_pred)
+print("accuracy on training set is : ",accuracy)
 
+list_of_features = clf.feature_importances_
+
+for i in range(len(list_of_features)):
+    if (list_of_features[i] > 0.20) :
+        print (i, list_of_features[i])
+        #got q27 answer from here (33614, 0.7647058823529412)
+
+print('print size of training points: ', type(features_train), len(features_train))
+
+
+feature_names_list = vectorizer.get_feature_names()
+print('q28 chapter 12 answer is : ',feature_names_list[33614])
+print('q29 chapter 12 answer is : ',feature_names_list[14343])
+print('q30 info word is : ',feature_names_list[21323])
+
+# Note: quiz 31 of chapter 12 gives accuracy of 0.8213879408418657 but the course take .8 as answer. needs to check. 

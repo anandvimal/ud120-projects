@@ -53,10 +53,15 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             parsed_email = parseOutText(email)
             ### use str.replace() to remove any instances of the words
             ### ["sara", "shackleton", "chris", "germani"]
+            '''
             parsed_email.replace( "sara" ,"")
             parsed_email.replace( "shackleton" ,"")
             parsed_email.replace( "chris" ,"")
             parsed_email.replace( "germani" ,"")
+            '''
+            for w in ["sara", "shackleton", "chris", "germani","sshacklensf","cgermannsf"]:
+                if w in parsed_email:
+                    parsed_email = parsed_email.replace(w, '')
 
             ### append the text to word_data
             word_data.append(parsed_email)
@@ -91,14 +96,16 @@ pickle.dump( from_data, open("your_email_authors.pkl", "w") )
 ### in Part 4, do TfIdf vectorization here
 
 from sklearn.feature_extraction.text import TfidfVectorizer
-word_data = pickle.load(open("real_your_word_data.pkl", "rb"))
+word_data = pickle.load(open("your_word_data.pkl", "rb"))
+#word_data = pickle.load(open("real_your_word_data.pkl", "rb"))
+word_data = pickle.load(open("your_word_data.pkl", "rb"))
 
 vectorizer = TfidfVectorizer(stop_words='english')
 
 vectorizer.fit_transform(word_data)
 #print( vectorizer.get_stop_words() )
 unique = vectorizer.get_feature_names()
-print( len(unique))
+print( "length of feature_names is : ",len(unique))
 
 
 '''import pickle
@@ -120,4 +127,9 @@ for x in range(34590, 34600):
 
 # for our solution 34595 works as answer even in quiz we are asked to submit 34597.
 # it is probably because our unique words are also 2 less than what was right answer.
-print('q21 answer is : ',unique[34595])
+print('q21 answer is : ',unique[34597])
+
+
+
+
+#
