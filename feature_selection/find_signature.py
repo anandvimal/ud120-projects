@@ -72,4 +72,7 @@ for i in range(len(list_of_features)):
 
 print('print size of training points: ', type(features_train), len(features_train))
 
+
+feature_names_list = vectorizer.get_feature_names()
+print('q28 chapter 12 answer is : ',feature_names_list[33614])
 #
