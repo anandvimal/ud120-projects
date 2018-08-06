@@ -54,6 +54,10 @@ y_pred = clf.predict(features_test)
 
 accuracy = accuracy_score(labels_test, y_pred)
 print("accuracy on test set is : ",accuracy)
+#accuracy calculated after updating the file paths (shown below) was: 0.9482366325369739
+#words_file = "../text_learning/your_word_data.pkl"
+#authors_file = "../text_learning/your_email_authors.pkl"
+
 
 y_pred = clf.predict(features_train)
 accuracy = accuracy_score(labels_train, y_pred)
