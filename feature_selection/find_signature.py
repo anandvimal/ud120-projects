@@ -76,4 +76,6 @@ print('print size of training points: ', type(features_train), len(features_trai
 feature_names_list = vectorizer.get_feature_names()
 print('q28 chapter 12 answer is : ',feature_names_list[33614])
 print('q29 chapter 12 answer is : ',feature_names_list[14343])
+print('q30 info word is : ',feature_names_list[21323])
+
 #
