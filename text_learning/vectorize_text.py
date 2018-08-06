@@ -59,7 +59,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             parsed_email.replace( "chris" ,"")
             parsed_email.replace( "germani" ,"")
             '''
-            for w in ["sara", "shackleton", "chris", "germani"]:
+            for w in ["sara", "shackleton", "chris", "germani","sshacklensf"]:
                 if w in parsed_email:
                     parsed_email = parsed_email.replace(w, '')
 
