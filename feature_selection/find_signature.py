@@ -78,4 +78,4 @@ print('q28 chapter 12 answer is : ',feature_names_list[33614])
 print('q29 chapter 12 answer is : ',feature_names_list[14343])
 print('q30 info word is : ',feature_names_list[21323])
 
-#
+# Note: quiz 31 of chapter 12 gives accuracy of 0.8213879408418657 but the course take .8 as answer. needs to check. 
