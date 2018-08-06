@@ -10,11 +10,12 @@ numpy.random.seed(42)
 ### mini-project.
 
 #words_file = "../text_learning/real_your_word_data.pkl"
-#authors_file = "../text_learning/your_email_authors.pkl"
+words_file = "../text_learning/your_word_data.pkl"
+authors_file = "../text_learning/your_email_authors.pkl"
 
 # https://discussions.udacity.com/t/lesson12-quiz26/846930/4
-words_file = "word_data_overfit.pkl"
-authors_file = "email_authors_overfit.pkl"
+#words_file = "word_data_overfit.pkl"
+#authors_file = "email_authors_overfit.pkl"
 
 word_data = pickle.load( open(words_file, "r"))
 authors = pickle.load( open(authors_file, "r") )
@@ -63,5 +64,7 @@ list_of_features = clf.feature_importances_
 for i in range(len(list_of_features)):
     if (list_of_features[i] > 0.20) :
         print (i, list_of_features[i])
+
+print('print size of training points: ', type(features_train), len(features_train))
 
 #
