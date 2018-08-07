@@ -27,6 +27,13 @@ labels, features = targetFeatureSplit(data)
 
 
 
-### it's all yours from here forward!  
+### it's all yours from here forward!
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
 
+clf = DecisionTreeClassifier(random_state=0)
+clf.fit(features, labels)
 
+y_pred = clf.predict(features)
+accuracy = accuracy_score(labels, y_pred)
+print("accuracy on training dataset is: ", accuracy)
