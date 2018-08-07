@@ -67,6 +67,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random
 # Compute a PCA (eigenfaces) on the face dataset (treated as unlabeled
 # dataset): unsupervised feature extraction / dimensionality reduction
 n_components = 150
+'''
+quiz 35
+changed n_components to 150, 160, 200, 250 and found that f1 score can increase
+or decrease (go either way by increasing the n_components value.)
+'''
 
 print "Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.shape[0])
 t0 = time()
