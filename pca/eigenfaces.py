@@ -71,6 +71,10 @@ n_components = 150
 quiz 35
 changed n_components to 150, 160, 200, 250 and found that f1 score can increase
 or decrease (go either way by increasing the n_components value.)
+
+for quiz 36
+values to test [10, 15, 25, 50, 100, 250].
+with increaseing pca f1 score increase and performance increases of classifier
 '''
 
 print "Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.shape[0])
