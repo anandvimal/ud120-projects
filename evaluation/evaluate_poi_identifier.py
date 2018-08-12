@@ -40,3 +40,7 @@ clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print("accuracy on test dataset is: ", accuracy)
+
+#quiz 28 ch15
+print(len(y_test))
+print(sum(y_test))
