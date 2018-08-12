@@ -46,3 +46,8 @@ print(sum(y_test))
 
 #quiz 29 ch15
 print(len(y_test))
+
+'''
+for quiz 30
+acuuracy = 25/29 = .84
+'''
