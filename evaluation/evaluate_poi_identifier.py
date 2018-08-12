@@ -42,5 +42,7 @@ accuracy = accuracy_score(y_test, y_pred)
 print("accuracy on test dataset is: ", accuracy)
 
 #quiz 28 ch15
-print(len(y_test))
 print(sum(y_test))
+
+#quiz 29 ch15
+print(len(y_test))
