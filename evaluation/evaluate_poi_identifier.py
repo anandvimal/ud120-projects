@@ -58,4 +58,11 @@ for i in range(len(y_pred)):
     if (y_pred[i] == 1 ) and (y_test == 1) :
         true_positives_count = true_positives_count + 1
 
-print('Number of true positives : ', true_positives_count)        
+print('Number of true positives : ', true_positives_count)
+
+
+#calculate precission score
+from sklearn.metrics import precision_score
+precision_score = precision_score(y_test, y_pred, average='binary')
+
+print("precision_score : ", precision_score)
