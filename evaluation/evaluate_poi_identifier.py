@@ -42,12 +42,20 @@ accuracy = accuracy_score(y_test, y_pred)
 print("accuracy on test dataset is: ", accuracy)
 
 #quiz 28 ch15
-print(sum(y_test))
+print('total pois : ',sum(y_test))
 
 #quiz 29 ch15
-print(len(y_test))
+print('number of people in test set : ',len(y_test))
 
 '''
 for quiz 30
 acuuracy = 25/29 = .84
 '''
+
+
+true_positives_count = 0
+for i in range(len(y_pred)):
+    if (y_pred[i] == 1 ) and (y_test == 1) :
+        true_positives_count = true_positives_count + 1
+
+print('Number of true positives : ', true_positives_count)        
