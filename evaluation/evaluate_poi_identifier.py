@@ -63,10 +63,27 @@ print('Number of true positives : ', true_positives_count)
 
 #calculate precission score #q32
 from sklearn.metrics import precision_score
-precision_score = precision_score(y_test, y_pred, average='binary')
-print("precision_score : ", precision_score)
+precision_score1 = precision_score(y_test, y_pred, average='binary')
+print("precision_score : ", precision_score1)
+
 
 #calculate recall score #q33
 from sklearn.metrics import recall_score
-recall_score =  recall_score(y_test, y_pred, average='binary')
-print("recall_score : ", recall_score)
+recall_score1 =  recall_score(y_test, y_pred, average='binary')
+print("recall_score : ", recall_score1)
+
+#sample data
+#import numpy as np
+predictions = [0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1]
+true_labels = [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0]
+
+#a = np.array([1, 2], dtype=np.float32)
+
+y_pred =  predictions
+y_test =  true_labels
+
+precision_score2 = precision_score(y_test, y_pred, average='binary')
+print("precision_score on sample data : ", precision_score2)
+
+recall_score2 =  recall_score(y_test, y_pred, average='binary')
+print("recall_score on sample data : ", recall_score2)
