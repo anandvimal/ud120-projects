@@ -61,8 +61,12 @@ for i in range(len(y_pred)):
 print('Number of true positives : ', true_positives_count)
 
 
-#calculate precission score
+#calculate precission score #q32
 from sklearn.metrics import precision_score
 precision_score = precision_score(y_test, y_pred, average='binary')
-
 print("precision_score : ", precision_score)
+
+#calculate recall score #q33
+from sklearn.metrics import recall_score
+recall_score =  recall_score(y_test, y_pred, average='binary')
+print("recall_score : ", recall_score)
